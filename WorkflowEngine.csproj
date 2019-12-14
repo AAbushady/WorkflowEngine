@@ -45,11 +45,13 @@
   <ItemGroup>
     <Compile Include="CallWebService.cs" />
     <Compile Include="IActivity.cs" />
+    <Compile Include="IWorkFlow.cs" />
     <Compile Include="NotifyOwner.cs" />
     <Compile Include="ProcessVideo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UploadToCloud.cs" />
+    <Compile Include="WorkFlow.cs" />
     <Compile Include="WorkflowEngine.cs" />
   </ItemGroup>
   <ItemGroup>

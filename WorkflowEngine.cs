@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace WorkflowEngine
@@ -12,16 +13,18 @@ namespace WorkflowEngine
             _workflowList = new List<IActivity>();
         }
 
-        public void AddToWorkflow(IActivity activity)
+        public void Run(IWorkFlow workflow)
         {
-            _workflowList.Add(activity);
-        }
-
-        public void Run()
-        {
-            foreach (var activity in _workflowList)
+            foreach (var activity in workflow.GetActivities())
             {
-                activity.Execute();
+                try
+                {
+                    activity.Execute();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error: Unable to process activity in workflow.");
+                }
             }
         }
     }

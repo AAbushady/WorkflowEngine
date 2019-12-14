@@ -7,14 +7,15 @@ namespace WorkflowEngine
     {
         static void Main(string[] args)
         {
-            var workflowEngine = new WorkflowEngine();
+            var workFlow = new WorkFlow();
 
-            workflowEngine.AddToWorkflow(new UploadToCloud());
-            workflowEngine.AddToWorkflow(new CallWebService());
-            workflowEngine.AddToWorkflow(new NotifyOwner());
-            workflowEngine.AddToWorkflow(new ProcessVideo());
+            workFlow.AddToWorkflow(new UploadToCloud());
+            workFlow.AddToWorkflow(new CallWebService());
+            workFlow.AddToWorkflow(new NotifyOwner());
+            workFlow.AddToWorkflow(new ProcessVideo());
 
-            workflowEngine.Run();
+            var engine = new WorkflowEngine();
+            engine.Run(workFlow);
         }
     }
 }
